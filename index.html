@@ -1,40 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt br">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOX</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="home.html">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <form class="streaming">
-    <h3>CADASTRO</h3>
-    <input type="text" placeholder="login" id="login">
-    <input type="password" placeholder="Senha" id="Senha">
+    <h3>LOGIN</h3>
+    <input type="text" placeholder="usuário" id="usuário">
+    <input type="password" placeholder="Senha" id="senha">
     <input type="email" placeholder="email" id="email">
     <input type="tel" placeholder="telefone" id="telefone">
-    <input type="submit" onclick="logar(); return false">
-
+    <button onclick="logar(); return false">ENTRAR</button>
 </form>
 
 <script>
-    function logar(){
+    function logar() {
+        var login = document.getElementById('usuário').value;
+        var senha = document.getElementById('senha').value;
+        var email = document.getElementById('email').value;
+        var telefone = document.getElementById('telefone').value;
 
-        var login = document.getElementById('login').vaule;
-        var Senha = document.getElementById('senha').vaule;
-        var email = document.getElementById('email').vaule;
-        var telefone = document.getElementById('telefone').vaule;
-        if(login == "admin" && Senha == "admin"){
-            alert('sucesso');
+        localStorage.setItem("login", usuário);
+        localStorage.setItem("senha", senha);
+        localStorage.setItem("email", email);
+        localStorage.setItem("telefone", telefone);
+
+        if (login === "admin" && senha === "admin") {
+            alert('Login realizado com sucesso!');
             location.href = "home.html";
-        }else{
-            alert('Usuario ou senha incorretos');
+        } else {
+            alert('Usuário ou senha incorretos');
         }
-
     }
-    
-    
 </script>
 
 </body>
